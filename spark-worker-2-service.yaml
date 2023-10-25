@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: spark-worker-2
+  name: spark-worker-2
+spec:
+  ports:
+  - name: "4042"
+    port: 4042
+    targetPort: 4040
+  - name: "18082"
+    port: 18082
+    targetPort: 18080
+  selector:
+    io.kompose.service: spark-worker-2
+status:
+  loadBalancer: {}
